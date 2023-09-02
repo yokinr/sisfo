@@ -15,7 +15,7 @@ class isRole
      */
     public function handle(Request $request, Closure $next, $role): Response
     {
-        if (auth()->user()->pengguna_id !== $role) {
+        if (auth()->user()->peran_id_str !== $role) {
             abort(403);
         }
         return $next($request);
