@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Koneksi;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,6 +20,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'Operator Sekolah',
             'email' => 'admin@example.com',
             'peran_id_str' => 'Super Admin',
+        ])->id;
+
+        Koneksi::create([
+            'host' => 'http://localhost:5774',
+            'token' => 'lx1UkWUJyJszuyz',
+            'npsn' => '10303912',
         ])->id;
     }
 }

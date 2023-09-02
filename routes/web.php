@@ -7,6 +7,7 @@ use App\Livewire\DokumentSiswa;
 use App\Livewire\DokumentUserComponent;
 use App\Livewire\PesertaDidik;
 use App\Livewire\SuperAdmin\DataUtama;
+use App\Livewire\SuperAdmin\Pengguna;
 use App\Livewire\Users;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth', 'role:Super Admin'])->group(function () {
     Route::get('/super-admin/data-utama', DataUtama::class)->name('super-admin.data-utama');
+    Route::get('/super-admin/data-utama/pengguna', Pengguna::class)->name('super-admin.data-utama.pengguna');
 });
 
 Route::middleware(['auth', 'role:Operator Sekolah'])->group(function () {

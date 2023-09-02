@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreignId('peserta_didik_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

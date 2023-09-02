@@ -26,6 +26,10 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Gate::define('Super Admin', function (User $user) {
+            return $user->peran_id_str === 'Super Admin';
+        });
+
         Gate::define('admin', function (User $user) {
             return $user->peran_id_str === 'Operator Sekolah';
         });

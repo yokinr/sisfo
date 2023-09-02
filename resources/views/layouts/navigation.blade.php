@@ -16,6 +16,13 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
+                    @can('Super Admin')
+                    <x-nav-link :href="route('super-admin.data-utama')"
+                        :active="request()->routeIs('super-admin.data-utama')">
+                        {{ __('Data Utama') }}
+                    </x-nav-link>
+                    @endcan
+
                     @can('admin')
                     <x-nav-link :href="route('user')" :active="request()->routeIs('user')">
                         {{ __('Users') }}
