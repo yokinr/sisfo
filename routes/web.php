@@ -6,6 +6,7 @@ use App\Livewire\Coba;
 use App\Livewire\DokumentSiswa;
 use App\Livewire\DokumentUserComponent;
 use App\Livewire\PesertaDidik;
+use App\Livewire\SuperAdmin\DataUtama;
 use App\Livewire\Users;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,10 @@ Route::get('/dashboard', function () {
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
+
+Route::middleware(['auth', 'role:Super Admin'])->group(function () {
+    Route::get('/super-admin/data-utama', DataUtama::class)->name('super-admin.data-utama');
+});
 
 Route::middleware(['auth', 'role:Operator Sekolah'])->group(function () {
     Route::get('/users', Users::class)->name('user');

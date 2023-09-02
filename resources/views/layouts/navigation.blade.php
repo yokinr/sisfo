@@ -22,9 +22,11 @@
                     </x-nav-link>
                     @endcan
 
+                    @can('Peserta Didik')
                     <x-nav-link :href="route('dokument')" :active="request()->routeIs('dokument')">
                         {{ __('Dokument') }}
                     </x-nav-link>
+                    @endcan
                 </div>
             </div>
 

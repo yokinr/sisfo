@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'Operator Sekolah',
             'email' => 'admin@example.com',
-            'peran_id_str' => 'Operator Sekolah',
+            'peran_id_str' => 'Super Admin',
         ])->id;
     }
 }
