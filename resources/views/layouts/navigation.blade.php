@@ -112,9 +112,11 @@
             </x-responsive-nav-link>
             @endcan
 
+            @can('Peserta Didik')
             <x-responsive-nav-link :href="route('dokument')" :active="request()->routeIs('dokument')">
                 {{ __('Dokument') }}
             </x-responsive-nav-link>
+            @endcan
         </div>
 
         <!-- Responsive Settings Options -->
