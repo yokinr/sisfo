@@ -32,7 +32,11 @@
         <div>
             @if ($modal==='preview')
             <div class="flex items-center justify-center mb-3">
-                <img src="{{ url('storage/'.$dokument_url) }}" alt="{{ $dokument_id }}" class="max-w-xs">
+                @php
+                $image = file_get_contents('sisfo/public/storage/'.$dokument_url);
+                @endphp
+                <img src="data:image/jpeg; base64, <?= base64_encode($image) ?>" alt="{{ $dokument_id }}"
+                    class="max-w-xs">
             </div>
             <div>
                 <x-primary-button wire:click='edit'>Ganti</x-primary-button>
