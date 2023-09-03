@@ -13,6 +13,7 @@
                             <div>{{ $item->title }}</div>
                             <img src="{{ url('storage/'.$item->url) }}" class="w-full"
                                 wire:click='preview("{{ $item->dokument_id }}")'>
+                            <div>{{ $item->created_at }}</div>
                         </div>
                         @empty
                         <div class="col-span-3 p-8 border rounded text-center">Belum ada file yang di upload</div>
