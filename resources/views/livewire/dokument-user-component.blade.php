@@ -9,7 +9,7 @@
 
                     <div class="grid gap-2 grid-cols-3">
                         @forelse ($dokuments as $item)
-                        <div class="col-span-1 bg-gray-200 p-2 max-w-xs">
+                        <div class="col-span-3 md-col-span-1 bg-gray-200 p-2 max-w-xs">
                             <div>{{ $item->title }}</div>
                             @php
                             $image = file_get_contents('sisfo/public/storage/'.$item->url);
