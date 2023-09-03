@@ -21,7 +21,7 @@ class DokumentUserComponent extends Component
     public $dokument_url;
     #[Rule('required|max:100')]
     public $title;
-    #[Rule('required|image|min:128|max:512')]
+    #[Rule('required|image|min:64|max:256')]
     public $images;
 
     function delete()

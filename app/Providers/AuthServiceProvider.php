@@ -30,7 +30,7 @@ class AuthServiceProvider extends ServiceProvider
             return $user->peran_id_str === 'Super Admin';
         });
 
-        Gate::define('admin', function (User $user) {
+        Gate::define('Operator Sekolah', function (User $user) {
             return $user->peran_id_str === 'Operator Sekolah';
         });
 

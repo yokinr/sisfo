@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Livewire\Coba;
 use App\Livewire\DokumentSiswa;
 use App\Livewire\DokumentUserComponent;
+use App\Livewire\Operator\DokumentList;
 use App\Livewire\PesertaDidik;
 use App\Livewire\SuperAdmin\DataUtama;
 use App\Livewire\SuperAdmin\Pengguna;
@@ -42,8 +43,9 @@ Route::middleware(['auth', 'role:Super Admin'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:Operator Sekolah'])->group(function () {
-    Route::get('/users', Users::class)->name('user');
-    Route::get('/peserta-didik', PesertaDidik::class)->name('peserta-didik');
+    Route::get('/operator/data-utama', DataUtama::class)->name('operator.data-utama');
+    Route::get('/operator/data-utama/pengguna', Pengguna::class)->name('operator.data-utama.pengguna');
+    Route::get('/operator/dokumen', DokumentList::class)->name('operator.dokumen');
 });
 
 Route::middleware(['auth', 'role:Peserta Didik'])->group(function () {

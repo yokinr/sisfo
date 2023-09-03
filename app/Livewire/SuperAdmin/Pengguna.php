@@ -31,7 +31,9 @@ class Pengguna extends Component
 
     function delete(User $pengguna)
     {
-        dd($pengguna);
+        $this->js("confirm('Anda Yakin akan menghapus akun: " . $pengguna->email . "')");
+        $pengguna->delete();
+        $this->reset();
     }
 
     function resetPassword(User $pengguna)

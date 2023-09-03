@@ -23,9 +23,14 @@
                     </x-nav-link>
                     @endcan
 
-                    @can('admin')
-                    <x-nav-link :href="route('user')" :active="request()->routeIs('user')">
-                        {{ __('Users') }}
+                    @can('Operator Sekolah')
+                    <x-nav-link :href="route('operator.data-utama')"
+                        :active="request()->routeIs('operator.data-utama')">
+                        {{ __('Data Utama') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('operator.dokumen')" :active="request()->routeIs('operator.dokumen')">
+                        {{ __('Dokumen') }}
                     </x-nav-link>
                     @endcan
 
@@ -97,9 +102,13 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-            @can('admin')
-            <x-responsive-nav-link :href="route('user')" :active="request()->routeIs('user')">
-                {{ __('Users') }}
+            @can('Operator Sekolah')
+            <x-responsive-nav-link :href="route('operator.data-utama')"
+                :active="request()->routeIs('operator.data-utama')">
+                {{ __('Data Utama') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('operator.dokumen')" :active="request()->routeIs('operator.dokumen')">
+                {{ __('Dokumen') }}
             </x-responsive-nav-link>
             @endcan
 

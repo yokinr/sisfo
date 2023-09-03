@@ -37,6 +37,7 @@ class DataUtama extends Component
         if ($this->data) {
             foreach ($this->data['rows'] as $key => $value) {
                 User::updateOrInsert([
+                    'pengguna_id' => $value['pengguna_id'],
                     'ptk_id' => $value['ptk_id'],
                     'peserta_didik_id' => $value['peserta_didik_id'],
                 ], [

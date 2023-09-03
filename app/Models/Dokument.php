@@ -12,4 +12,14 @@ class Dokument extends Model
 
     protected $guarded = [];
     protected $primaryKey = 'dokument_id';
+
+    public function gtk()
+    {
+        return $this->hasOne(GetGtk::class, 'ptk_id')->latest();
+    }
+
+    public function peserta_didik()
+    {
+        return $this->belongsTo(GetPesertadidik::class, 'peserta_didik_id')->latest();
+    }
 }
