@@ -9,7 +9,10 @@
                         @forelse ($dokuments as $item)
                         <div class="border p-1 shadow-sm">
                             <div>{{ $item->title }}</div>
-                            <img src="{{ url('storage/'.$item->url) }}"
+                            @php
+                            $image = file_get_contents('sisfo/public/storage/'.$item->url);
+                            @endphp
+                            <img src="data:image/jpeg; base64, <?= base64_encode($image) ?>"
                                 wire:click='fullItem("{{ $item->dokument_id }}")'>
                         </div>
                         @empty
@@ -23,7 +26,10 @@
                     </div>
                     <div class="font-semibold text-lg">{{ $dokument->title }}</div>
                     <div class="w-full p-2 border">
-                        <img src="{{ url('storage/'.$dokument->url) }}" class="w-full">
+                        @php
+                        $image = file_get_contents('sisfo/public/storage/'.$dokument->url);
+                        @endphp
+                        <img src="data:image/jpeg; base64, <?= base64_encode($image) ?>" class="w-full">
                     </div>
                     @endif
                     @else

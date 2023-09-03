@@ -11,7 +11,10 @@
                         @forelse ($dokuments as $item)
                         <div class="col-span-1 bg-gray-200 p-2 max-w-xs">
                             <div>{{ $item->title }}</div>
-                            <img src="{{ url('storage/'.$item->url) }}" class="w-full"
+                            @php
+                            $image = file_get_contents('sisfo/public/storage/'.$item->url);
+                            @endphp
+                            <img src="data:image/jpeg; base64, <?= base64_encode($image) ?>" class="w-full"
                                 wire:click='preview("{{ $item->dokument_id }}")'>
                             <div>{{ $item->created_at }}</div>
                         </div>
