@@ -26,9 +26,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [AuthenticatedSessionController::class, 'create'])->name('login');
 
 Route::get('pembelajaran', PembelajaranComponent::class)->name('guest.pembelajaran');
 Route::get('pembelajaran/gtk/{ptk_id}/{semester_id}', PembelajaranGtkComponent::class)->name('guest.pembelajaran.gtk');
