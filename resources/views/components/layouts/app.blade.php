@@ -20,7 +20,6 @@
         @include('layouts.navigation')
         @endauth
         <main>
-            <div wire:loading>Loading</div>
             {{ $slot }}
         </main>
     </div>
