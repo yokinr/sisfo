@@ -4,6 +4,7 @@ namespace App\Livewire\Guest;
 
 use App\Models\GetGtk;
 use App\Models\Pembelajaran;
+use Livewire\Attributes\Rule;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -12,9 +13,15 @@ class PembagianTugasComponent extends Component
     use WithPagination;
 
     public $semester;
+    #[Rule('exists:get_gtks,ptk_id')]
     public $gtk;
 
     public $jjm;
+
+    public function updated()
+    {
+        $this->validate();
+    }
 
     public function render()
     {
@@ -44,6 +51,9 @@ class PembagianTugasComponent extends Component
             'semesters' => $semesters,
             'gtks' => $gtks,
             'pembelajarans' => Pembelajaran::with('rombel', 'gtk')
+                // ->whereHas('gtk', function ($q) {
+                //     $q->where('tahun_ajaran_id', substr($this->semester, 0, 4))->where('nama', 'like', $this->search . '%');
+                // })
                 ->where('semester_id', $this->semester)
                 ->where('ptk_id', 'like', '%' . $this->gtk . '%')
                 ->paginate(10)

@@ -26,8 +26,10 @@ class PembelajaranComponent extends Component
     public function render()
     {
         $semesters = Pembelajaran::select('semester_id')->distinct()->latest()->get();
-        if (!$this->rombel) {
-            $this->semester_id = $semesters[0]->semester_id;
+        if ($semesters) {
+            if (!$this->rombel) {
+                $this->semester_id = $semesters[0]->semester_id;
+            }
         }
         $jenis_rombels = GetRombonganbelajar::select('jenis_rombel', 'jenis_rombel_str')->distinct()->where('semester_id', $this->semester_id)->get();
         if (!$this->jenis_rombel) {

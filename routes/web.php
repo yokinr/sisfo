@@ -8,6 +8,7 @@ use App\Livewire\DokumentUserComponent;
 use App\Livewire\Guest\PembagianTugasComponent;
 use App\Livewire\Guest\PembelajaranComponent;
 use App\Livewire\Guest\PembelajaranGtkComponent;
+use App\Livewire\Guest\WelcomeComponent;
 use App\Livewire\Operator\DokumentList;
 use App\Livewire\PesertaDidik;
 use App\Livewire\SuperAdmin\DataUtama;
@@ -26,7 +27,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [AuthenticatedSessionController::class, 'create'])->name('login');
+// Route::get('/', [AuthenticatedSessionController::class, 'create'])->name('login');
+
+Route::get('/', WelcomeComponent::class)->name('welcome');
 
 Route::get('pembelajaran', PembelajaranComponent::class)->name('guest.pembelajaran');
 Route::get('pembelajaran/gtk/{ptk_id}/{semester_id}', PembelajaranGtkComponent::class)->name('guest.pembelajaran.gtk');

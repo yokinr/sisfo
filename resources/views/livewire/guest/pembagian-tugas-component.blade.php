@@ -1,4 +1,5 @@
 <div>
+    @include('livewire.guest.top-nav')
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -7,21 +8,23 @@
                         <h1 class="text-2xl font-semibold">Pembagian Tugas</h1>
                         <h2>Tahun Ajaran: {{ substr($semester,0,4) }} Semester: {{ substr($semester,4) }}</h2>
                     </div>
-                    <div class="flext mb-3">
-                        <select wire:model.live='semester'>
-                            <option value="">Tahun Ajaran</option>
-                            @foreach ($semesters as $item)
-                            <option value="{{ $item->semester_id }}">{{ substr($item->semester_id,0,4) }} Semester
-                                {{ substr($item->semester_id,4) }}</option>
-                            @endforeach
-                        </select>
+                    <div class="flex mb-3">
+                        <div class="flex-auto flex">
+                            <select wire:model.live='semester' class="mr-1">
+                                <option value="">Tahun Ajaran</option>
+                                @foreach ($semesters as $item)
+                                <option value="{{ $item->semester_id }}">{{ substr($item->semester_id,0,4) }} Semester
+                                    {{ substr($item->semester_id,4) }}</option>
+                                @endforeach
+                            </select>
 
-                        <select wire:model.live='gtk'>
-                            <option value="">GTK</option>
-                            @foreach ($gtks as $item)
-                            <option value="{{ $item->ptk_id }}">{{ $item->nama }}</option>
-                            @endforeach
-                        </select>
+                            <select wire:model.live='gtk'>
+                                <option value="">GTK</option>
+                                @foreach ($gtks as $item)
+                                <option value="{{ $item->ptk_id }}">{{ $item->nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
 
                     <div class="overflow-auto">
