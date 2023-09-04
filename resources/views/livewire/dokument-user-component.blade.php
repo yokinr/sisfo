@@ -12,7 +12,11 @@
                         <div class="col-span-3 md-col-span-1 bg-gray-200 p-2 max-w-xs">
                             <div>{{ $item->title }}</div>
                             @php
+
+                            if (file_exists('sisfo/public/storage/'.$item->url)) {
                             $image = file_get_contents('sisfo/public/storage/'.$item->url);
+                            }
+
                             @endphp
                             <img src="data:image/jpeg; base64, <?= base64_encode($image) ?>" class="w-full"
                                 wire:click='preview("{{ $item->dokument_id }}")'>
