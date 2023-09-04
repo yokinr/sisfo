@@ -11,13 +11,7 @@
                         @forelse ($dokuments as $item)
                         <div class="col-span-3 md-col-span-1 bg-gray-200 p-2 max-w-xs">
                             <div>{{ $item->title }}</div>
-                            @php
 
-                            if (file_exists('sisfo/public/storage/'.$item->url)) {
-                            $image = file_get_contents('sisfo/public/storage/'.$item->url);
-                            }
-
-                            @endphp
                             <img src="{{ url('sisfo/public/storage/'.$item->url) }}" class="w-full"
                                 wire:click='preview("{{ $item->dokument_id }}")'>
                             <div>{{ $item->created_at }}</div>
@@ -36,9 +30,7 @@
         <div>
             @if ($modal==='preview')
             <div class="flex items-center justify-center mb-3">
-                @php
-                $image = file_get_contents('sisfo/public/storage/'.$dokument_url);
-                @endphp
+
                 <img src="{{ url('sisfo/public/storage/'.$dokument_url) }}" alt="{{ $dokument_id }}" class="max-w-xs">
             </div>
             <div>
