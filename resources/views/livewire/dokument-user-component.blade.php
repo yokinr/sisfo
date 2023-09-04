@@ -18,7 +18,7 @@
                             }
 
                             @endphp
-                            <img src="data:image/jpeg; base64, <?= base64_encode($image) ?>" class="w-full"
+                            <img src="{{ url('sisfo/public/storage/'.$item->url) }}" class="w-full"
                                 wire:click='preview("{{ $item->dokument_id }}")'>
                             <div>{{ $item->created_at }}</div>
                         </div>
