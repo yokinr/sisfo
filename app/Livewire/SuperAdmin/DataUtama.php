@@ -61,6 +61,9 @@ class DataUtama extends Component
         if ($this->data) {
             foreach ($this->data['rows'] as $key => $value) {
                 GetRombonganbelajar::updateOrInsert([
+                    'rombongan_belajar_id' => $value['rombongan_belajar_id'],
+                    'semester_id' => $value['semester_id']
+                ], [
                     "rombongan_belajar_id" => $value['rombongan_belajar_id'],
                     "nama" => $value['nama'],
                     "tingkat_pendidikan_id" => $value['tingkat_pendidikan_id'],
@@ -82,6 +85,9 @@ class DataUtama extends Component
                 if ($value['anggota_rombel']) {
                     foreach ($value['anggota_rombel'] as $key1 => $value1) {
                         AnggotaRombel::updateOrInsert([
+                            'anggota_rombel_id' => $value1['anggota_rombel_id'],
+                            'semester_id' => $value['semester_id'],
+                        ], [
                             "anggota_rombel_id" => $value1['anggota_rombel_id'],
                             "rombongan_belajar_id" => $value['rombongan_belajar_id'],
                             "peserta_didik_id" => $value1['peserta_didik_id'],
@@ -95,6 +101,9 @@ class DataUtama extends Component
                 if ($value['pembelajaran']) {
                     foreach ($value['pembelajaran'] as $key3 => $value3) {
                         Pembelajaran::updateOrInsert([
+                            'pembelajaran_id' => $value3['pembelajaran_id'],
+                            'semester_id' => $value['semester_id'],
+                        ], [
                             "pembelajaran_id" => $value3['pembelajaran_id'],
                             "rombongan_belajar_id" => $value['rombongan_belajar_id'],
                             "mata_pelajaran_id" => $value3['mata_pelajaran_id'],

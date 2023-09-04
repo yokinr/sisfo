@@ -15,7 +15,6 @@
                                 <x-danger-button wire:click='pengaturanKoneksi'>Koneksi</x-danger-button>
                                 @endif
                             </div>
-                            <div wire:loading>Loading</div>
                             <div>
                                 <table class="w-full">
                                     <tbody>
