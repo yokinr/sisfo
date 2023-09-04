@@ -11,6 +11,4 @@ class Pembelajaran extends Model
     use HasUuids;
 
     protected $guarded = [];
-
-    protected $primaryKey = 'pembelajaran_id';
 }

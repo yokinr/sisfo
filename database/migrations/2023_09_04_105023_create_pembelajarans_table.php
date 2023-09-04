@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('pembelajarans', function (Blueprint $table) {
             $table->id();
             $table->uuid("pembelajaran_id");
-            $table->foreignId("rombongan_belajar_id");
+            $table->foreignId('rombongan_belajar_id');
             $table->string("mata_pelajaran_id");
             $table->string("mata_pelajaran_id_str");
             $table->foreignId("ptk_terdaftar_id");
             $table->foreignId("ptk_id");
             $table->string("nama_mata_pelajaran");
-            $table->string("induk_pembelajaran_id");
+            $table->string("induk_pembelajaran_id")->nullable();
             $table->string("jam_mengajar_per_minggu");
             $table->string("status_di_kurikulum");
             $table->string("status_di_kurikulum_str");

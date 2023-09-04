@@ -3,7 +3,6 @@
 namespace App\Livewire\SuperAdmin;
 
 use App\Livewire\Forms\KoneksiForm;
-use App\Livewire\PesertaDidik;
 use App\Models\AnggotaRombel;
 use App\Models\GetGtk;
 use App\Models\GetPesertadidik;
@@ -93,24 +92,24 @@ class DataUtama extends Component
                     }
                 }
 
-                // if ($value['pembelajaran']) {
-                //     foreach ($value['pembelajaran'] as $key3 => $value3) {
-                //         Pembelajaran::updateOrInsert([
-                //             "pembelajaran_id" => $value3['pembelajaran_id'],
-                //             "rombongan_belajar_id" => $value['rombongan_belajar_id'],
-                //             "mata_pelajaran_id" => $value3['mata_pelajaran_id'],
-                //             "mata_pelajaran_id_str" => $value3['mata_pelajaran_id_str'],
-                //             "ptk_terdaftar_id" => $value3['ptk_terdaftar_id'],
-                //             "ptk_id" => $value3['ptk_id'],
-                //             "nama_mata_pelajaran" => $value3['nama_mata_pelajaran'],
-                //             "induk_pembelajaran_id" => $value3['induk_pembelajaran_id'],
-                //             "jam_mengajar_per_minggu" => $value3['jam_mengajar_per_minggu'],
-                //             "status_di_kurikulum" => $value3['status_di_kurikulum'],
-                //             "status_di_kurikulum_str" => $value3['status_di_kurikulum_str'],
-                //             'semester_id' => $value['semester_id'],
-                //         ]);
-                //     }
-                // }
+                if ($value['pembelajaran']) {
+                    foreach ($value['pembelajaran'] as $key3 => $value3) {
+                        Pembelajaran::updateOrInsert([
+                            "pembelajaran_id" => $value3['pembelajaran_id'],
+                            "rombongan_belajar_id" => $value['rombongan_belajar_id'],
+                            "mata_pelajaran_id" => $value3['mata_pelajaran_id'],
+                            "mata_pelajaran_id_str" => $value3['mata_pelajaran_id_str'],
+                            "ptk_terdaftar_id" => $value3['ptk_terdaftar_id'],
+                            "ptk_id" => $value3['ptk_id'],
+                            "nama_mata_pelajaran" => $value3['nama_mata_pelajaran'],
+                            "induk_pembelajaran_id" => $value3['induk_pembelajaran_id'],
+                            "jam_mengajar_per_minggu" => $value3['jam_mengajar_per_minggu'],
+                            "status_di_kurikulum" => $value3['status_di_kurikulum'],
+                            "status_di_kurikulum_str" => $value3['status_di_kurikulum_str'],
+                            'semester_id' => $value['semester_id'],
+                        ]);
+                    }
+                }
             }
         }
     }

@@ -15,6 +15,7 @@
                                 <x-danger-button wire:click='pengaturanKoneksi'>Koneksi</x-danger-button>
                                 @endif
                             </div>
+                            <div wire:loading>Loading</div>
                             <div>
                                 <table class="w-full">
                                     <tbody>
@@ -41,7 +42,8 @@
                                         <tr class="border-b">
                                             <td class="p-4">Rombel</td>
                                             <td class="p-4">{{ $rombel }}</td>
-                                            <td class="text-center p-2"><button wire:click='getGtk'>Syncron</button>
+                                            <td class="text-center p-2"><button
+                                                    wire:click='getRombonganBelajar'>Syncron</button>
                                             </td>
                                         </tr>
                                         <tr class="border-b">
